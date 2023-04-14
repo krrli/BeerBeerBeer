@@ -1,0 +1,25 @@
+.search-container {
+  padding-top: 20px;
+  display: grid;
+  width: 300px;
+}
+
+.search-box {
+  //width: 90%;
+  //box-sizing: content-box;width: 100%;
+  width: 100%;
+  box-sizing: content-box;
+
+  border:1px solid #111;
+  transition: .3s border;
+
+}
+
+.search-box:hover{
+  border:1.5px solid #111;
+}
+
+svg {
+  width: 15px;
+  height: 15px;
+}
