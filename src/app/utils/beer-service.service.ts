@@ -29,6 +29,12 @@ export class BeerService {
       .pipe(retry(1), catchError(this.errorHandl))
   }
 
+  GetBeerByName(page: number = 1, name: string) : Observable<IBeer[]> {
+    return this.http
+      .get<IBeer[]>(`${this.APIPath}?page=${page}&per_page=${this.maxPerPage}`)
+      .pipe(retry(1), catchError(this.errorHandl))
+  }
+
   errorHandl(error: { error: { message: string; }; status: any; message: any; }) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

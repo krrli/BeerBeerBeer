@@ -1,8 +1,3 @@
-export type Beer = {
-  id: number;
-  name: string;
-}
-
 
 export interface IBeer {
   id: number;

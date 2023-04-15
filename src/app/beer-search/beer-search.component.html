@@ -38,11 +38,6 @@
       </li>
     </ul>
   </div>
+  <app-beer-detail [beer$]="activeBeer$"></app-beer-detail>
 
-  <div *ngIf="searchTerm && activeBeer$">
-    <p>typed: {{ searchTerm }}</p>
-    <p><strong>{{ activeBeer$.name }}</strong><br/> {{ activeBeer$.description }}</p>
-    <img cImg height="200" width="auto" rounded src={{activeBeer$.image_url}} thumbnail  />
-
-  </div>
 </div>

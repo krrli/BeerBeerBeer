@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Beer, IBeer } from '../utils/types';
+import { IBeer } from '../utils/types';
 import { BeerService } from '../utils/beer-service.service';
 
 @Component({
