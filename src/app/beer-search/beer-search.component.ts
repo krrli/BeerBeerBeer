@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Beer } from '../utils/types';
+import { Beer, IBeer } from '../utils/types';
+import { BeerService } from '../utils/beer-service.service';
 
 @Component({
   selector: 'beer-search',
@@ -8,43 +9,57 @@ import { Beer } from '../utils/types';
 })
 export class BeerSearchComponent {
   searchTerm = '';
+  resListIsOpen = false;
   activeBeer$?: Beer;
   activeIndex: number = 0;
+  beers$: IBeer[] = [
+    { id: 0, name: 'dummy beer', image_url: '', description: 'very nice' },
+  ];
 
-  beers$: Array<Beer> = new Array(
-    { id: 0, name: 'hoi'},
-    { id: 1, name: 'hoi 2'},
-    { id: 2, name: 'blubbsi'}
-  );
+  constructor(public beerService: BeerService) {
+    this.loadBeers();
+  }
+
+  loadBeers() {
+    return this.beerService.GetAllBeers().subscribe((data: IBeer[]) => {
+      this.beers$ = data;
+    });
+  }
 
   onKeydown($event: Event) {
-    if(this.activeIndex < this.beers$.length-1){
+    if (this.activeIndex < this.beers$.length - 1) {
       this.activeIndex++;
-    }
-    else{
+    } else {
       this.activeIndex = 0;
     }
     this.activeBeer$ = this.beers$[this.activeIndex];
   }
   onKeyup($event: Event) {
-    if(this.activeIndex === 0){
-      this.activeIndex = this.beers$.length-1;
-    }else{
+
+    if (this.activeIndex === 0) {
+      this.activeIndex = this.beers$.length - 1;
+    } else {
       this.activeIndex--;
     }
     this.activeBeer$ = this.beers$[this.activeIndex];
   }
   onEnter($event: Event) {
     this.activeBeer$ = this.beers$[this.activeIndex];
+    this.searchTerm = this.activeBeer$.name;
+    this.resListIsOpen = false;
   }
 
-  onClickSelectBeer(beer: Beer){
+  onClickSelectBeer(beer: Beer) {
     this.activeBeer$ = beer;
-    this.searchTerm = beer.name
+    this.searchTerm = beer.name;
+    this.resListIsOpen = false;
   }
+
 
   search(term: string): void {
     this.searchTerm = term;
     this.activeBeer$ = this.beers$[this.activeIndex];
+    this.resListIsOpen = true;
   }
+
 }

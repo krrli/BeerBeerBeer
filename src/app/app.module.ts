@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BeerSearchComponent } from './beer-search/beer-search.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BeerService } from './utils/beer-service.service';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,10 @@ import { BeerSearchComponent } from './beer-search/beer-search.component';
     BeerSearchComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [BeerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

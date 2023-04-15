@@ -1,4 +1,4 @@
-<div class="search-container">
+<div class="search-container" *ngIf=beers$.length>
   <label clas="name-label">
     <input
       #searchBox
@@ -23,7 +23,8 @@
     </svg>
   </label>
 
-  <div *ngIf="searchTerm && activeBeer$">
+  <!-- move this to its own component -->
+  <div *ngIf="resListIsOpen && (searchTerm && activeBeer$)">
     <ul class="search-result">
       <li *ngFor="let beer of beers$">
         <button
