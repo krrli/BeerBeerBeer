@@ -1,4 +1,5 @@
 .search-container {
+  display: block;
   padding-top: 20px;
   width: 350px;
   position:relative;
@@ -11,6 +12,12 @@
   transition: .3s border;
   display:inline-block;
   height:40px;
+  display: block;
+}
+
+
+.search-box:focus {
+  outline: #336699 auto 1px;
 }
 
 .search-box:hover{
@@ -23,8 +30,35 @@ svg {
   position:absolute;
   display:inline-block;
   left:325px;
-  top:38px;
+  top:35px;
 }
+
+/* ***** */
+li {
+  list-style-type: none;
+}
+.search-result li span {
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+}
+
+.search-result li span:hover {
+  background-color: lavender;
+  color: white;
+}
+
+ul.search-result {
+  margin-top: 0;
+  padding-left: 0;
+}
+
 
 
 

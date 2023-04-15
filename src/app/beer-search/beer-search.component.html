@@ -23,6 +23,11 @@
       </svg>
     </label>
 
+    <ul class="search-result">
+      <li *ngFor="let beer of beers$">
+        <span> {{ beer }} </span>
+      </li>
+    </ul>
 
   <p>{{ searchTerm }}</p>
 </div>

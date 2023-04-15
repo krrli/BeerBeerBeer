@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class BeerSearchComponent {
   searchTerm = "";
+  beers$: Array<String> = new Array("hoi", "Tschüss", "byebye");
+
 
   onKeydown($event: Event) {
     console.log('key down');
