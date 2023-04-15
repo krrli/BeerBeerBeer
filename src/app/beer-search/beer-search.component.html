@@ -23,7 +23,7 @@
     </svg>
   </label>
 
-  <!-- move this to its own component -->
+  <!-- todo: move this to its own component -->
   <div *ngIf="resListIsOpen && (searchTerm && activeBeer$)">
     <ul class="search-result">
       <li *ngFor="let beer of beers$">
