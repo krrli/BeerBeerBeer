@@ -8,13 +8,14 @@ import { Beer } from '../utils/types';
 })
 export class BeerSearchComponent {
   searchTerm = '';
+  activeBeer$?: Beer;
+  activeIndex: number = 0;
+
   beers$: Array<Beer> = new Array(
     { id: 0, name: 'hoi'},
     { id: 1, name: 'hoi 2'},
     { id: 2, name: 'blubbsi'}
   );
-  activeBeer$?: Beer;
-  activeIndex: number = 0;
 
   onKeydown($event: Event) {
     if(this.activeIndex < this.beers$.length-1){
@@ -39,6 +40,7 @@ export class BeerSearchComponent {
 
   onClickSelectBeer(beer: Beer){
     this.activeBeer$ = beer;
+    this.searchTerm = beer.name
   }
 
   search(term: string): void {
