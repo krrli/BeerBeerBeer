@@ -11,6 +11,7 @@ export class BeerSearchComponent {
   searchTerm = '';
   timeout: any = null;
   resListIsOpen = false;
+  showDetail = false;
   activeBeer$?: IBeer;
   activeIndex: number = 0;
   initialBeers$: IBeer[] = [
@@ -19,7 +20,8 @@ export class BeerSearchComponent {
   beers$: IBeer[] = this.initialBeers$;
 
   constructor(public beerService: BeerService) {
-    this.loadBeers();
+    // if you want to load some beers initially
+    //this.loadBeers();
   }
 
   loadBeers() {
@@ -34,6 +36,7 @@ export class BeerSearchComponent {
 
       if(data.length === 0){
         this.noBeerFound();
+        this.showDetail = false;
       }
     });
   }
@@ -52,6 +55,7 @@ export class BeerSearchComponent {
       this.activeIndex = 0;
     }
     this.activeBeer$ = this.beers$[this.activeIndex];
+    this.showDetail = false;
   }
   onKeyup($event: Event) {
     if (this.activeIndex === 0) {
@@ -60,23 +64,27 @@ export class BeerSearchComponent {
       this.activeIndex--;
     }
     this.activeBeer$ = this.beers$[this.activeIndex];
+    this.showDetail = false;
   }
   onEnter($event: Event) {
     this.activeBeer$ = this.beers$[this.activeIndex];
     this.searchTerm = this.activeBeer$.name;
     this.resListIsOpen = false;
+    this.showDetail = true;
   }
 
   onClickSelectBeer(beer: IBeer) {
     this.activeBeer$ = beer;
     this.searchTerm = beer.name;
     this.resListIsOpen = false;
+    this.showDetail = true;
   }
 
   search(term: string): void {
     this.searchTerm = term;
     this.activeBeer$ = this.beers$[this.activeIndex];
     this.resListIsOpen = true;
+    this.showDetail = false;
 
     clearTimeout(this.timeout);
 

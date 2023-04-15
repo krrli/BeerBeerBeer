@@ -38,5 +38,6 @@
       </li>
     </ul>
   </div>
-  <app-beer-detail [beer$]="activeBeer$"></app-beer-detail>
+
+  <app-beer-detail *ngIf="showDetail" [beer$]="activeBeer$"></app-beer-detail>
 </div>
