@@ -1,5 +1,12 @@
 <div *ngIf="beer$">
-  <p><strong>{{ beer$.name }}</strong><br/> {{ beer$.description }}</p>
-  <img cImg height="200" width="auto" rounded src={{beer$.image_url}} thumbnail  />
-
+  <h3>{{ beer$.name }}</h3>
+  <p>{{ beer$.description }}</p>
+  <img
+    cImg
+    height="200"
+    width="auto"
+    rounded
+    src="{{ beer$.image_url }}"
+    thumbnail
+  />
 </div>

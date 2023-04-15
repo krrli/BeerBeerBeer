@@ -9,5 +9,4 @@ import { IBeer } from '../utils/types';
 export class BeerDetailComponent {
   @Input()
   beer$?: IBeer;
-
 }
