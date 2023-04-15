@@ -29,9 +29,9 @@ export class BeerService {
       .pipe(retry(1), catchError(this.errorHandl))
   }
 
-  GetBeerByName(page: number = 1, name: string) : Observable<IBeer[]> {
+  GetBeersByName(name: string, page: number = 1) : Observable<IBeer[]> {
     return this.http
-      .get<IBeer[]>(`${this.APIPath}?page=${page}&per_page=${this.maxPerPage}`)
+      .get<IBeer[]>(`${this.APIPath}?page=${page}&per_page=${this.maxPerPage}&beer_name=${name}`)
       .pipe(retry(1), catchError(this.errorHandl))
   }
 
