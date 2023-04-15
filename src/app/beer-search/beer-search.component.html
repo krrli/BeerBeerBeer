@@ -22,13 +22,26 @@
     </svg>
   </label>
 
-  <div *ngIf="searchTerm">
+  <div *ngIf="searchTerm && activeBeer$">
     <ul class="search-result">
       <li *ngFor="let beer of beers$">
-        <span> {{ beer }} </span>
+        <!--
+        <span [class.search-result-active] = "beer.isActive"> {{ beer.name }} </span>
+        -->
+        <button
+          [class.search-result-active]="beer.id === activeBeer$.id"
+          (click)="onClickSelectBeer(beer)"
+          (keydown.ArrowDown)="onKeydown($event)"
+          (keydown.ArrowUp)="onKeyup($event)"
+        >
+          {{ beer.name }}
+        </button>
       </li>
     </ul>
   </div>
 
-  <p>{{ searchTerm }}</p>
+  <div *ngIf="searchTerm && activeBeer$">
+    <p>typed: {{ searchTerm }}</p>
+    <p>selected beer: {{ activeBeer$.name }}</p>
+  </div>
 </div>

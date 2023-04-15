@@ -37,7 +37,7 @@ svg {
 li {
   list-style-type: none;
 }
-.search-result li span {
+.search-result li button {
   border-bottom: 1px solid gray;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
@@ -49,7 +49,13 @@ li {
   color: black;
 }
 
-.search-result li span:hover {
+.search-result-active {
+  background-color: lavender;
+  color: white;
+}
+
+
+.search-result li button:hover {
   background-color: lavender;
   color: white;
 }
@@ -59,6 +65,23 @@ ul.search-result {
   padding-left: 0;
 }
 
+/* ***** reset button style ***** */
+button {
+  display: inline-block;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 0;
+  text-decoration: none;
+  font-family: "Atkinson Hyperlegible";
+  background: white;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: start;
+}
 
+
+button:active {
+  transform: scale(0.99);
+}
 
 
