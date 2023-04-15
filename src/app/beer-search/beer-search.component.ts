@@ -10,7 +10,7 @@ import { BeerService } from '../utils/beer-service.service';
 export class BeerSearchComponent {
   searchTerm = '';
   resListIsOpen = false;
-  activeBeer$?: Beer;
+  activeBeer$?: IBeer;
   activeIndex: number = 0;
   beers$: IBeer[] = [
     { id: 0, name: 'dummy beer', image_url: '', description: 'very nice' },
@@ -49,7 +49,7 @@ export class BeerSearchComponent {
     this.resListIsOpen = false;
   }
 
-  onClickSelectBeer(beer: Beer) {
+  onClickSelectBeer(beer: IBeer) {
     this.activeBeer$ = beer;
     this.searchTerm = beer.name;
     this.resListIsOpen = false;
