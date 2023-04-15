@@ -9,7 +9,7 @@
       (keydown.ArrowUp)="onKeyup($event)"
       (keydown.Enter)="onEnter($event)"
       (input)="search(searchBox.value)"
-      value={{searchTerm}}
+      value="{{ searchTerm }}"
     />
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -22,21 +22,13 @@
       />
     </svg>
   </label>
+  <app-beer-search-results
+    searchTerm="searchTerm"
+    [activeBeer$]=activeBeer$
+    [activeIndex]=activeIndex
+    [beers$]="beers$"
+  ></app-beer-search-results>
 
-  <div *ngIf="searchTerm && activeBeer$">
-    <ul class="search-result">
-      <li *ngFor="let beer of beers$">
-        <button
-          [class.search-result-active]="beer.id === activeBeer$.id"
-          (click)="onClickSelectBeer(beer)"
-          (keydown.ArrowDown)="onKeydown($event)"
-          (keydown.ArrowUp)="onKeyup($event)"
-        >
-          {{ beer.name }}
-        </button>
-      </li>
-    </ul>
-  </div>
 
   <div *ngIf="searchTerm && activeBeer$">
     <p>typed: {{ searchTerm }}</p>

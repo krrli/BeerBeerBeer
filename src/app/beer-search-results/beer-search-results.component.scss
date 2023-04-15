@@ -1,39 +1,5 @@
-.search-container {
-  display: block;
-  padding-top: 20px;
-  width: 350px;
-  position:relative;
-}
-
-.search-box {
-  width: 100%;
-  box-sizing: border-box;
-  border:1px solid #111;
-  transition: .3s border;
-  display:inline-block;
-  height:40px;
-  display: block;
-}
-
-.search-box:focus {
-  outline: lavender auto 1px;
-}
-
-.search-box:hover{
-  border:1.5px solid #111;
-}
-
-svg {
-  width: 15px;
-  height: 15px;
-  position:absolute;
-  display:inline-block;
-  left:325px;
-  top:35px;
-}
 
 /* ***** */
-/*
 li {
   list-style-type: none;
 }
@@ -64,10 +30,8 @@ ul.search-result {
   margin-top: 0;
   padding-left: 0;
 }
-*/
 
 /* ***** reset button style ***** */
-/*
 button {
   display: inline-block;
   border: none;
@@ -86,4 +50,3 @@ button:active {
   transform: scale(0.99);
 }
 
-*/

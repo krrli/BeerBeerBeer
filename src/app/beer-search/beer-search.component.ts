@@ -38,10 +38,6 @@ export class BeerSearchComponent {
     this.activeBeer$ = this.beers$[this.activeIndex];
   }
 
-  onClickSelectBeer(beer: Beer){
-    this.activeBeer$ = beer;
-    this.searchTerm = beer.name
-  }
 
   search(term: string): void {
     this.searchTerm = term;

@@ -1,0 +1,14 @@
+<div *ngIf="searchTerm && activeBeer$">
+  <ul class="search-result">
+    <li *ngFor="let beer of beers$; let i = index">
+      <button
+        [class.search-result-active]="beer.id === activeBeer$.id"
+        (click)="onClickSelectBeerByIndex(i)"
+        (keydown.ArrowDown)="onKeydown($event)"
+        (keydown.ArrowUp)="onKeyup($event)"
+      >
+        {{ beer.name }}
+      </button>
+    </li>
+  </ul>
+</div>
